@@ -1,0 +1,19 @@
+These instructions assume you have already installed
+NodeJS & NPM on your computer.
+
+If you haven't, please visit nodejs.org and download
+the latest 0.10.X installation for your operating system.
+
+Download and unzip the workshop you'd like to work on.
+
+Once unzipped, open your terminal program
+and change directory to your workshop.
+
+To install this workshop's program,
+simply run this command:
+
+npm link --local
+
+If you're working on the Learn You Node workshop,
+your computer will now have a 'learnyounode' program you
+can run from the terminal.
