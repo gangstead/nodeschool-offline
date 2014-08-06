@@ -12,7 +12,7 @@ and change directory to your workshop.
 To install this workshop's program,
 simply run this command:
 
-npm link --local
+npm link
 
 If you're working on the Learn You Node workshop,
 your computer will now have a 'learnyounode' program you

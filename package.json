@@ -4,13 +4,14 @@
   "description": "Offline Resource for NodeSchool",
   "main": "index.js",
   "scripts": {
-    "build": "echo \"Error: not setup\" && exit 1"
+    "start": "./node_modules/.bin/gulp"
   },
   "author": "Ross Kukulinski <ross@speakit.io>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-json-editor": "^2.0.2",
+    "gulp-mustache": "^0.4.0",
     "gulp-rimraf": "^0.1.0",
     "gulp-webserver": "^0.5.0",
     "gulp-zip": "^1.0.0",
