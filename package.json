@@ -18,5 +18,9 @@
     "learnyounode": "^1.0.1",
     "rimraf": "^2.2.8",
     "stream-adventure": "^2.5.0"
+  },
+  "dependencies": {
+    "learnyounode": "^1.0.6",
+    "stream-adventure": "^2.5.1"
   }
 }
