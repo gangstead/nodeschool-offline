@@ -38,7 +38,7 @@ gulp.task('clean', function(cb) {
   return rimraf('./dist', cb);
 });
 
-var localIP = '1.1.1.1';
+var localIP = '192.168.67.99';
 gulp.task('get_ip', function() {
   var os=require('os');
   var ifaces=os.networkInterfaces();
