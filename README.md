@@ -16,6 +16,7 @@ First time you want to run you need to download all the dependencies.  Will have
 ```
 > npm install
 ```
+Modify `config.json` with your wifi settings and modules you are going to do tonight.
 
 ## Running
 
@@ -24,7 +25,7 @@ The default gulp task opens a web server at port 3000
 > gulp
 ```
 Then visit http://localhost:3000
-Find your local ip address with 'ifconfig' (mac) or 'ipconfig' (windows) and attendees can go to http://<your-ip>:3000 and get started.
+Attendees can go to the http://<your-ip>:3000 and get started.
 
 ## Adding a module
 "My meetup is super advanced and we're going to do some more modules."  Bully for you.  Here's what you do.
@@ -34,12 +35,19 @@ Let's say you are going to add get-it.  First install get-it locally, saving to 
 npm install git-it --save-dev
 ```
 
-Next modify `gulfile.js` and add `git-it` to the list of modules:
-```js
-var modules = [ 'learnyounode',
-'stream-adventure',
-'javascripting',
-'git-it'];
+Next modify `config.json` and add `git-it` to the list of modules:
+```json
+{
+  "local_ip": "0.0.0.0",
+  "wifi_ssid": "wifi network",
+  "wifi_pw": "wifi password",
+  "modules": [
+  "learnyounode",
+  "stream-adventure",
+  "javascripting",
+  "git-it"
+  ]
+}
 ```
 
 Now run `npm install` and `gulp` as before.
