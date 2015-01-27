@@ -4,27 +4,29 @@ var rimraf = require('rimraf');
 var jeditor = require("gulp-json-editor");
 var mustache = require("gulp-mustache");
 var webserver = require('gulp-webserver');
+var es = require('event-stream');
 
-var wifi_ssid = 'this_ssid';
-var wifi_pw = 'password';
-
+var wifi_ssid = 'CREDERA-GUEST';
+var wifi_pw = 'I forgot to update the secret password in the gulpfile';
 
 
 gulp.watch('./templates/*.mustache', ['process_templates']);
 gulp.watch('./instructions.txt', ['move_instructions']);
-gulp.watch(['./*.css', './*.png'], ['move_static']);
+gulp.watch(['./assets/*'], ['move_static']);
 
+var modules = [ 'learnyounode',
+                'stream-adventure',
+                'javascripting'];
 
-gulp.task('zip_learnyounode', function() {
-  return gulp.src('./node_modules/learnyounode/**/*')
-      .pipe(zip('learnyounode.zip'))
-      .pipe(gulp.dest('./dist'));
-});
-
-gulp.task('zip_streamadventure', function() {
-  return gulp.src('./node_modules/stream-adventure/**/*')
-      .pipe(zip('streamadventure.zip'))
-      .pipe(gulp.dest('./dist'));
+gulp.task('zip_modules', function() {
+  var streams = modules.map(function(module){
+    return gulp.src('./node_modules/'+module+'/**/*')
+    .pipe(zip(module+'.zip'))
+  });
+  console.log('swg'+streams.length);
+  console.log(streams);
+  return es.merge.apply(null,streams)
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('move_instructions', function() {
@@ -77,13 +79,12 @@ gulp.task('process_templates', function() {
 });
 
 gulp.task('move_static', function() {
-  return gulp.src(['./*.css', './*.png'])
+  return gulp.src(['./assets/*'])
       .pipe(gulp.dest("./dist"));
 });
 
 gulp.task('run_webserver', [
-  'zip_learnyounode',
-  'zip_streamadventure',
+  'zip_modules',
   'move_instructions',
   'process_templates',
   'move_static',
@@ -97,8 +98,7 @@ gulp.task('run_webserver', [
 
 
 gulp.task('default', [
-  'zip_learnyounode',
-  'zip_streamadventure',
+  'zip_modules',
   'move_instructions',
   'update_ip',
   'run_webserver'
