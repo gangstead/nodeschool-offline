@@ -23,8 +23,6 @@ gulp.task('zip_modules', function() {
     return gulp.src('./node_modules/'+module+'/**/*')
     .pipe(zip(module+'.zip'))
   });
-  console.log('swg'+streams.length);
-  console.log(streams);
   return es.merge.apply(null,streams)
     .pipe(gulp.dest('./dist'));
 });

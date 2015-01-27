@@ -41,3 +41,5 @@ var modules = [ 'learnyounode',
 'javascripting',
 'git-it'];
 ```
+
+Now run `npm install` and `gulp` as before.
