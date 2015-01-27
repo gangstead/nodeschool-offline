@@ -1,0 +1,15 @@
+Installing Node.
+
+Download the Node binary for your system.  Go through the installer.
+
+
+Windows Users:
+There's a bug in the current windows installer.  You must follow two additional steps:
+1) Run cmd as an administrator
+2) Create this folder:
+
+  mkdir 'C:\Users\[username]\AppData\Roaming\npm
+
+Or else you will get this error:
+
+  Error: ENOENT, stat 'C:\Users\[username]\AppData\Roaming\npm
