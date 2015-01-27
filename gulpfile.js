@@ -5,22 +5,15 @@ var jeditor = require("gulp-json-editor");
 var mustache = require("gulp-mustache");
 var webserver = require('gulp-webserver');
 var es = require('event-stream');
-
-var wifi_ssid = 'CREDERA-GUEST';
-var wifi_pw = 'I forgot to update the secret password in the gulpfile';
-
+var config = require('./config.json');
 
 gulp.watch('./templates/*.mustache', ['process_templates']);
-gulp.watch('./instructions.txt', ['move_instructions']);
+gulp.watch('./*.txt', ['move_instructions']);
 gulp.watch(['./assets/*'], ['move_static']);
 
-var modules = [ 'learnyounode',
-                'stream-adventure',
-                'javascripting'];
-
 gulp.task('zip_modules', function() {
-  var streams = modules.map(function(module){
-    return gulp.src('./node_modules/'+module+'/**/*')
+  var streams = config.modules.map(function(module){
+      return gulp.src('./node_modules/'+module+'/**/*')
     .pipe(zip(module+'.zip'))
   });
   return es.merge.apply(null,streams)
@@ -28,7 +21,7 @@ gulp.task('zip_modules', function() {
 });
 
 gulp.task('move_instructions', function() {
-  return gulp.src(['instructions.txt'])
+  return gulp.src(['*.txt'])
       .pipe(gulp.dest('./dist/'));
 });
 
@@ -36,7 +29,7 @@ gulp.task('clean', function(cb) {
   return rimraf('./dist', cb);
 });
 
-var localIP = '192.168.67.99';
+var local_ip;
 gulp.task('get_ip', function() {
   var os=require('os');
   var ifaces=os.networkInterfaces();
@@ -48,7 +41,8 @@ gulp.task('get_ip', function() {
     ifaces[dev].forEach(function(details){
       if (details.family=='IPv4') {
         lookupIpAddress = details.address;
-        localIP = lookupIpAddress;
+        local_ip = lookupIpAddress;
+        console.log('swg ip address'+local_ip);
         return;
       }
     });
@@ -57,19 +51,19 @@ gulp.task('get_ip', function() {
 
 gulp.task('update_ip', ['get_ip'], function() {
   return gulp.src('./config.json')
-      .pipe(jeditor({
-        'local_ip': localIP
+      .pipe(jeditor(function(json){
+        if(local_ip) {
+          console.log('swg local ip');
+          json.local_ip = local_ip;
+        } else console.log('no local ip');
+        return json;
       }))
       .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('process_templates', function() {
+gulp.task('process_templates', ['update_ip'], function() {
   return gulp.src("./templates/*.mustache")
-      .pipe(mustache({
-          wifi_ssid: wifi_ssid,
-          wifi_pw: wifi_pw,
-          ip: localIP
-      },
+      .pipe(mustache('./dist/config.json',
       {
         extension: '.html'
       }))
@@ -84,9 +78,9 @@ gulp.task('move_static', function() {
 gulp.task('run_webserver', [
   'zip_modules',
   'move_instructions',
+  'update_ip',
   'process_templates',
-  'move_static',
-  'update_ip'], function() {
+  'move_static'], function() {
   return gulp.src('./dist')
     .pipe(webserver({
       host: '0.0.0.0',

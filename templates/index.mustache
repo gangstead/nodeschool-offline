@@ -19,7 +19,7 @@
       <p class="tagline">
         2. Open this webpage
       </p>
-      <h2><a href="http://{{ip}}">http://{{ip}}</a></h2>
+      <h2><a href="http://{{local_ip}}">http://{{local_ip}}</a></h2>
 
       <p class="tagline">
         3. Install Node
@@ -37,9 +37,9 @@
       </p>
       <div class="content" id="irl">
         <ul>
-          <li><a href="/javascripting.zip">javascripting</a></li>
-          <li><a href="/learnyounode.zip">Learn You Node</a></li>
-          <li><a href="/stream-adventure.zip">Stream Adventure</a></li>
+          {{#modules}}
+          <li><a href="/{{.}}.zip">{{.}}</a></li>
+          {{/modules}}
         </ul>
       </div>
 
