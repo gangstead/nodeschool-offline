@@ -39,6 +39,7 @@ Next modify `config.json` and add `git-it` to the list of modules:
 ```json
 {
   "local_ip": "0.0.0.0",
+  "port": 3000,
   "wifi_ssid": "wifi network",
   "wifi_pw": "wifi password",
   "modules": [
