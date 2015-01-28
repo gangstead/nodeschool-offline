@@ -43,10 +43,10 @@ Next modify `config.json` and add `git-it` to the list of modules:
   "wifi_ssid": "wifi network",
   "wifi_pw": "wifi password",
   "modules": [
-  "learnyounode",
-  "stream-adventure",
-  "javascripting",
-  "git-it"
+    "learnyounode",
+    "stream-adventure",
+    "javascripting",
+    "git-it"
   ]
 }
 ```
