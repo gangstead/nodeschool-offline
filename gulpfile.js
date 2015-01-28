@@ -42,7 +42,6 @@ gulp.task('get_ip', function() {
       if (details.family=='IPv4') {
         lookupIpAddress = details.address;
         local_ip = lookupIpAddress;
-        console.log('swg ip address'+local_ip);
         return;
       }
     });
@@ -53,7 +52,7 @@ gulp.task('update_ip', ['get_ip'], function() {
   return gulp.src('./config.json')
       .pipe(jeditor(function(json){
         if(local_ip) {
-          console.log('swg local ip');
+          console.log('detected local ip');
           json.local_ip = local_ip;
         } else console.log('no local ip');
         return json;
@@ -84,7 +83,7 @@ gulp.task('run_webserver', [
   return gulp.src('./dist')
     .pipe(webserver({
       host: '0.0.0.0',
-      port: 3000
+      port: config.port
     }))
 });
 

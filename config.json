@@ -1,7 +1,8 @@
 {
   "local_ip": "0.0.0.0",
+  "port": 3000,
   "wifi_ssid": "wifi network",
-  "wifi_pw": "wifi password",
+  "wifi_pw": "change this in config.json",
   "modules": [
     "learnyounode",
     "stream-adventure",
