@@ -3,7 +3,7 @@ NodeJS & NPM on your computer.
 
 Download and unzip the workshop you'd like to work on.
 
-Once unzipped, open your terminal program
+Once unzipped, open your terminal program (Windows users -- open as administrator)
 and change directory to your workshop.
 
 To install this workshop's program,
