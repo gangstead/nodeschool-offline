@@ -38,16 +38,36 @@
       <div class="content" id="irl">
         <ul>
           {{#modules}}
-          <li><a href="/{{.}}.zip">{{.}}</a></li>
+          <li>`npm install -g {{.}}`</li>
           {{/modules}}
         </ul>
       </div>
 
       <p class="tagline">
-        5. Read the instructions
+        4alt. Congested Internet Alternative:
       </p>
       <div class="content" id="irl">
-        <a href="/RunningInstructions.txt">RunningInstructions.txt</a>
+        Download zipped workshop (locally hosted):
+        <ul>
+          {{#modules}}
+          <li><a href="/{{.}}.zip">{{.}}.zip</a></li>
+          {{/modules}}
+        </ul>
+        Read these instructions:
+        <ul>
+          <li><a href="/RunningInstructions.txt">RunningInstructions.txt</a></li>
+        </ul>
+      </div>
+
+      <p class="tagline">
+        5. Start workshop
+      </p>
+      <div class="content" id="irl">
+        <ul>
+          <li>Type the workshop name at the command line</li>
+          <li>You are ready when you see this:</li>
+          <li><a href="/workshop-ready.png"><img width="300" src="workshop-ready.png"></a></li>
+        </ul>
       </div>
 
       <p class="tagline">

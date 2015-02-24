@@ -25,7 +25,7 @@ The default gulp task opens a web server at port 3000
 > gulp
 ```
 Then visit http://localhost:3000
-Attendees can go to the http://<your-ip>:3000 and get started.
+Attendees can go to the http://[your-ip]:3000 and get started.
 
 ## Adding a module
 "My meetup is super advanced and we're going to do some more modules."  Bully for you.  Here's what you do.

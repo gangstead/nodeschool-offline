@@ -9,6 +9,10 @@ and change directory to your workshop.
 To install this workshop's program,
 simply run this command:
 
+Windows:
+> npm link
+
+Linux/Mac users:
 > sudo npm link
 
 If you're working on the Learn You Node workshop,

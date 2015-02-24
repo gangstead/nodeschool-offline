@@ -51,10 +51,10 @@ gulp.task('get_ip', function() {
 gulp.task('update_ip', ['get_ip'], function() {
   return gulp.src('./config.json')
       .pipe(jeditor(function(json){
-        if(local_ip) {
-          console.log('detected local ip');
+        if(!json.local_ip) {
+          console.log('using detected local_ip');
           json.local_ip = local_ip;
-        } else console.log('no local ip');
+        } else console.log('using config local_ip');
         return json;
       }))
       .pipe(gulp.dest('./dist'));

@@ -10,6 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "event-stream": "^3.2.1",
+    "git-it": "^1.6.3",
     "gulp": "^3.8.7",
     "gulp-json-editor": "^2.0.2",
     "gulp-mustache": "^0.4.0",
@@ -17,13 +18,14 @@
     "gulp-webserver": "^0.5.0",
     "gulp-zip": "^1.0.0",
     "javascripting": "^1.10.1",
-    "learnyounode": "^1.0.1",
+    "learnyounode": "^1.0.7",
     "rimraf": "^2.2.8",
     "stream-adventure": "^2.5.0"
   },
   "dependencies": {
-    "learnyounode": "^1.0.6",
-    "stream-adventure": "^2.5.1",
-    "javascripting": "^1.10.1"
+    "git-it": "^1.6.3",
+    "javascripting": "^1.10.1",
+    "learnyounode": "^1.0.7",
+    "stream-adventure": "^2.5.1"
   }
 }
