@@ -24,7 +24,7 @@ The default gulp task opens a web server at port 3000
 ```
 > gulp
 ```
-Then visit http://localhost:3000
+Then visit http://localhost:3000 and put it up on a projector
 
 Attendees can go to the http://[your-ip]:3000 and get started.
 
