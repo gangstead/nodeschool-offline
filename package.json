@@ -17,6 +17,7 @@
     "gulp-rimraf": "^0.1.0",
     "gulp-webserver": "^0.5.0",
     "gulp-zip": "^1.0.0",
+    "how-to-npm": "^1.2.0",
     "javascripting": "^1.10.1",
     "learnyounode": "^1.0.7",
     "rimraf": "^2.2.8",
@@ -24,6 +25,7 @@
   },
   "dependencies": {
     "git-it": "^1.6.3",
+    "how-to-npm": "^1.2.0",
     "javascripting": "^1.10.1",
     "learnyounode": "^1.0.7",
     "stream-adventure": "^2.5.1"
