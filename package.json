@@ -24,6 +24,7 @@
     "stream-adventure": "^2.5.0"
   },
   "dependencies": {
+    "expressworks": "^2.0.4",
     "git-it": "^1.6.3",
     "how-to-npm": "^1.2.0",
     "javascripting": "^1.10.1",

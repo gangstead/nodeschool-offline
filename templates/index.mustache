@@ -26,9 +26,8 @@
       </p>
       <div class="content" id="irl">
         <ul>
-          <li><a href="/node-v0.10.36-x86.msi">Windows</a> <a class="footnote" href="/InstallInstructions.txt">(Special Instructions)</a></li>
-          <li><a href="/node-v0.10.36.pkg">Mac</a></li>
-          <li><a href="http://nodejs.org/download/">It's complicated</a></li>
+          <li><a href="http://nodejs.org/download/">Download</a> <div> Then read: <a href="/InstallInstructions.txt">(Special Instructions)</a></div></li>
+          <li><strong>NEW option:</strong><a href="https://codio.com/">Run in the Cloud</a>. <div>Better for Windows users, ask us for help.</div></li>
         </ul>
       </div>
 
@@ -40,24 +39,6 @@
           {{#modules}}
           <li>`npm install -g {{.}}`</li>
           {{/modules}}
-        </ul>
-        <h2>how-to-npm special instruction: </h2>
-        <h2>run `npm install -g npm` to get very latest npm</h2>
-      </div>
-
-      <p class="tagline">
-        4alt. Congested Internet Alternative:
-      </p>
-      <div class="content" id="irl">
-        Download zipped workshop (locally hosted):
-        <ul>
-          {{#modules}}
-          <li><a href="/{{.}}.zip">{{.}}.zip</a></li>
-          {{/modules}}
-        </ul>
-        Read these instructions:
-        <ul>
-          <li><a href="/RunningInstructions.txt">RunningInstructions.txt</a></li>
         </ul>
       </div>
 
